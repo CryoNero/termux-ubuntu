@@ -1,6 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-su
-/data/data/com.termux/files/home/ub
 folder=ubuntu-fs
 if [ -d "$folder" ]; then
 	first=1
