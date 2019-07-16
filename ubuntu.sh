@@ -1,4 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
+su
+/data/data/com.termux/files/home/ub
 folder=ubuntu-fs
 if [ -d "$folder" ]; then
 	first=1
@@ -25,7 +27,6 @@ if [ "$first" != 1 ];then
 		wget "https://partner-images.canonical.com/core/trusty/20190515/ubuntu-trusty-core-cloudimg-armhf-root.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
-        su
         cd /sdcard
 	mkdir -p "$folder"
 	cd "$folder"
