@@ -25,6 +25,7 @@ if [ "$first" != 1 ];then
 		wget "https://partner-images.canonical.com/core/trusty/20190515/ubuntu-trusty-core-cloudimg-armhf-root.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
+        cd /sdcard
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "decompressing ubuntu image"
@@ -50,19 +51,19 @@ if [ -n "\$(ls -A binds)" ]; then
       . \$f
     done
 fi
-command+=" -b /dev"
-command+=" -b /proc"
+command+=" -b /sdcard/dev"
+command+=" -b /sdcard/proc"
 ## uncomment the following line to have access to the home directory of termux
-#command+=" -b /data/data/com.termux/files/home:/root"
+#command+=" -b /sdcard/data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
 command+=" -b /sdcard"
-command+=" -w /root"
-command+=" /usr/bin/env -i"
-command+=" HOME=/root"
-command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
+command+=" -w /sdcard/root"
+command+=" /sdcard/usr/bin/env -i"
+command+=" HOME=/sdcard/root"
+command+=" PATH=/sdcard/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
 command+=" LANG=C.UTF-8"
-command+=" /bin/bash --login"
+command+=" /sdcard/bin/bash --login"
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
