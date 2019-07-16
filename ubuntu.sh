@@ -25,6 +25,7 @@ if [ "$first" != 1 ];then
 		wget "https://partner-images.canonical.com/core/trusty/20190515/ubuntu-trusty-core-cloudimg-armhf-root.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
+        su
         cd /sdcard
 	mkdir -p "$folder"
 	cd "$folder"
