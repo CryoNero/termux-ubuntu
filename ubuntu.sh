@@ -51,19 +51,19 @@ if [ -n "\$(ls -A binds)" ]; then
       . \$f
     done
 fi
-command+=" -b /sdcard/dev"
-command+=" -b /sdcard/proc"
+command+=" -b /dev"
+command+=" -b /proc"
 ## uncomment the following line to have access to the home directory of termux
-#command+=" -b /sdcard/data/data/com.termux/files/home:/root"
+#command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
 command+=" -b /sdcard"
-command+=" -w /sdcard/root"
-command+=" /sdcard/usr/bin/env -i"
-command+=" HOME=/sdcard/root"
-command+=" PATH=/sdcard/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
+command+=" -w /root"
+command+=" /usr/bin/env -i"
+command+=" HOME=/root"
+command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
 command+=" LANG=C.UTF-8"
-command+=" /sdcard/bin/bash --login"
+command+=" /bin/bash --login"
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
